@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sokoban by JR</title>
+    <link rel="icon" type="image/x-icon" href="/assets/icon.png" />
+  </head>
+
+  <body>
+    <header class="row">
+      <img class="icon" src="/assets/icon.png" alt="Logo" />
+      <h1 class="title">Code Game: Sokoban & Smart Agent</h1>
+    </header>
+    <div class="main-layout">
+      <div class="scroll-container">
+        <div class="spacer"></div>
+        <button id="undo-button">
+          <img class="icon" src="/assets/undo.png" alt="Undo button" />
+        </button>
+        <button id="redo-button">
+          <img class="icon" src="/assets/redo.png" alt="Redo button" />
+        </button>
+        <button id="reset-button">
+          <img class="icon" src="/assets/reset.png" alt="Reset button" />
+        </button>
+        <button id="ai-button">
+          <img class="icon" src="/assets/ai.png" alt="Ai button" />
+        </button>
+        <button id="volume-button">
+          <audio
+            src="https://www.bensound.com/bensound-music/bensound-moose.mp3"
+          ></audio>
+          <i id="volume-icon" class="volume-icon volume-mute"></i>
+        </button>
+        <button id="theme-button">
+          <img class="icon" src="/assets/theme.png" alt="Ai button" />
+        </button>
+      </div>
+      <div class="playground-container">
+        <div class="playground-stats">
+          <p>
+            Category: <select id="category-select"></select> 
+          </p>
+          <p>
+            Level: <select id="level-select"></select>
+          </p>
+          <p>Moves: <span id="moves"></span></p>
+          <p>Pushes: <span id="pushes"></span></p>
+        </div>
+        <div id="canvas-container">
+          <div id="game-canvas" class="threejs-canvas"></div>
+          <div class="controls-container">
+            <button id="up-button">
+              <img class="icon" src="/assets/arrow-up.png" alt="up button" />
+            </button>
+            <button id="left-button">
+              <img class="icon" src="/assets/arrow-up.png" alt="up button" />
+            </button>
+            <button id="down-button">
+              <img class="icon" src="/assets/arrow-up.png" alt="up button" />
+            </button>
+            <button id="right-button">
+              <img class="icon" src="/assets/arrow-up.png" alt="up button" />
+            </button>
+          </div>
+          <div class="donations-container">
+            <a
+              href="https://revolut.me/jurevcifg"
+              target="_blank"
+              title="💸Tips💸"
+            >
+              <img id="qr" src="/assets/qr.png" alt="Revolut QR Code" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
