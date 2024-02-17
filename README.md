@@ -1,19 +1,37 @@
-npm install - creates node modules
+# Sokoban Game 🎮
 
-npm run build - creates "public" folder
+## Setup and Run 🛠️
 
-npm run start - starts the server on port 8080
+- **Install Dependencies**: 📦 - creates node_modules
+  ```bash
+  npm install
+  ```
 
-Sokoban Game Features
-Gameplay:
-Play the classic Sokoban game.
-Responsive web design for a seamless user experience.
-Movement:
-Navigate through the maze using arrow keys (Up, Down, Left, Right).
-Enhancements:
-Easily extensible codebase for future improvements.
-Incorporates undo and redo functionality.
-Restart the game at any point.
-AI Solver:
-Implement an AI button to solve mazes automatically.
-Feel free to contribute and enhance the game further! 🕹️🚀
+- **Build Project**: 🏗️ - creates "public" folder
+  ```bash
+  npm run build 
+  ```
+
+- **Start Server**: 🚀 - starts the server on port 8080
+  ```bash
+  npm run serve 
+  ```
+
+## Features 🌟
+
+### Gameplay:
+- 🧩 Play the classic Sokoban game.
+- 📱 Responsive web design for a seamless user experience.
+
+### Movement:
+- ⬆️⬇️⬅️➡️ Navigate through the maze using arrow keys (Up, Down, Left, Right).
+
+### Enhancements:
+- 🔧 Easily extensible codebase for future improvements.
+- 🔄 Incorporates undo and redo functionality.
+- 🔄 Restart the game at any point.
+
+### Solver:
+- 🤖 Implement a solver button to solve mazes automatically at the beginning of a level.
+
+Enjoy the classic challenge of Sokoban with modern enhancements for a fresh and engaging experience! 🎉

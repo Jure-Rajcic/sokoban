@@ -39,4 +39,18 @@ export default abstract class GameSquare {
   protected applyEffectToBox(box: Box): void {}
   protected applyEffectToWall(wall: Wall): void {}
   protected applyEffectToNothing(nothing: Nothing): void {}
+
+  public toString(): string {
+    if (this._occupant instanceof Player) return this.toStringPlayer(this._occupant);
+    if (this._occupant instanceof Box) return this.toStringBox(this._occupant);
+    if (this._occupant instanceof Wall) return this.toStringWall(this._occupant);
+    if (this._occupant instanceof Nothing) return this.toStringNothing(this._occupant);
+    throw new Error('Unrecognised IGameObject on Square')
+  }
+
+  protected abstract toStringPlayer(player: IGameObject): string;
+  protected abstract toStringBox(box: IGameObject): string;
+  protected abstract toStringWall(wall: IGameObject): string;
+  protected abstract toStringNothing(nothing: IGameObject): string;
+
 }

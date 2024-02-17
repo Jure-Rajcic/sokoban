@@ -11,13 +11,14 @@ import VisitorCommand from './logic/move/decorators/VisitorCommand';
 import { VisitorCommandConfig } from './logic/move/decorators/VisitorCommand';
 import SimpleVisitor from './logic/move/visitors/SimpleVisitor'
 import CategoryService from './services/CategoryService'
+import GameThemesFactory from './logic/themes/GameThemesFactory'
 
 export default class GameModel {
   public triggerUpdateView: () => void
   public map: GameSquare[][]
   public stats: Map<Stats, IStats>;
 
-  private readonly moveManager: CommandManeger
+  protected readonly moveManager: CommandManeger
 
   constructor() {
     this.triggerUpdateView = () => { }
@@ -68,6 +69,7 @@ export default class GameModel {
   }
 
   public undoMove(): void {
+    console.log('undo')
     if (!this.moveManager.canUndo()) return
     this.moveManager.undo()
     this.stats.get(Stats.MOVES)?.decrement()
@@ -102,44 +104,52 @@ export default class GameModel {
     }
   }
 
-  public solve(): void {
-    const result = [
-      Move.UP,
-      Move.RIGHT,
-      Move.RIGHT,
-      Move.RIGHT,
-      Move.RIGHT,
-      Move.RIGHT,
-      Move.UP,
-      Move.UP,
-      Move.UP,
-      Move.LEFT,
-      Move.DOWN,
-      Move.DOWN,
-      Move.RIGHT,
-      Move.DOWN,
-      Move.DOWN,
-      Move.LEFT,
-      Move.LEFT,
-      Move.UP,
-      Move.RIGHT,
-      Move.DOWN,
-      Move.RIGHT,
-      Move.UP,
-      Move.UP,
-      Move.DOWN,
-      Move.LEFT,
-      Move.LEFT,
-      Move.LEFT,
-      Move.LEFT,
-      Move.DOWN,
-      Move.RIGHT
-    ]
+  public async solve(): Promise<void> {
+    if (this.stats.get(Stats.MOVES)?.value !== 0) return
+    const solution = 'solution'
+    const result: Move[] = []
 
+    solution.toLocaleLowerCase().split('').forEach((s) => {
+      switch (s) {
+        case 'r':
+          result.push(Move.RIGHT)
+          break
+        case 'l':
+          result.push(Move.LEFT)
+          break
+        case 'u':
+          result.push(Move.UP)
+          break
+        case 'd':
+          result.push(Move.DOWN)
+          break
+        default:
+          throw new Error('Invalid solution')
+      }
+    })
+
+    // shoving all themes
+    for (let i = 0; i < GameThemesFactory.themesCount; i++) {
+      GameThemesFactory.changeTheme();
+      this.triggerUpdateView()
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+    }
+
+    // picking random theme
+    let random = Math.floor(Math.random() * GameThemesFactory.themesCount) + 1
+    while (random !== 0) {
+      GameThemesFactory.changeTheme();
+      random--
+    }
+    this.triggerUpdateView()
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
+
+    // solving
     let delay = 0
     result.forEach((move) => {
       setTimeout(() => this.move(move), delay)
-      delay += 100
+      delay += 120
     })
 
   }

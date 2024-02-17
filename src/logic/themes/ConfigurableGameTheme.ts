@@ -1,11 +1,21 @@
 
 import GameTheme from '../../models/AGameTheme'
 
-export default class ChristmasGameTheme extends GameTheme {
+export default class ConfigurableGameTheme extends GameTheme {
 
+  private readonly box_id: number;
+  private readonly player_id: number;
+  private readonly target_id: number;
+
+  constructor (box_id: number, player_id: number, target_id: number) {
+    super()
+    this.box_id = box_id
+    this.player_id = player_id
+    this.target_id = target_id
+  }
   protected renderBoxOnEmptySquare(): HTMLDivElement {
     const box = document.createElement("div")
-    const style = {width: '80%', height: '80%', 'background-image': 'url(/assets/themes/apple.png)', 'background-size': 'cover'}
+    const style = {width: '80%', height: '80%', 'background-image': `url(/assets/themes/boxes/${this.box_id}.png)`, 'background-size': 'cover'}
     Object.assign(box.style, style)
     return box
   }
@@ -19,18 +29,21 @@ export default class ChristmasGameTheme extends GameTheme {
     Object.assign(nothing.style, {'visibility': 'hidden'})
     return nothing
   }
-  protected renderPlayerOnTargetSquare(): HTMLDivElement {
+
+  protected renderPlayerOnEmptySquare(): HTMLDivElement {
+    
     const player = document.createElement("div")
-    const style = {width: '100%', height: '100%', 'background-image': 'url(/assets/themes/santa.png)', 'background-size': 'cover'}
+    const style = {width: '100%', height: '100%', 'background-image': `url(/assets/themes/players/${this.player_id}.png)`, 'background-size': 'cover'}
     Object.assign(player.style, style)
     return player
   }
 
+  
   // TARGET SQUARES
 
   protected renderBoxOnTargetSquare(): HTMLDivElement {
     const box = document.createElement("div")
-    const style = {width: '80%', height: '80%', 'background-image': 'url(/assets/themes/box-on-target.png)', 'background-size': 'cover'}
+    const style = {width: '80%', height: '80%', 'background-image': `url(/assets/themes/boxes_on_targets/${this.box_id}.png)`, 'background-size': 'cover'}
     Object.assign(box.style, style)
     return box
   }
@@ -41,14 +54,14 @@ export default class ChristmasGameTheme extends GameTheme {
   }
   protected renderNothingOnTargetSquare(): HTMLDivElement {
     const nothing = document.createElement("div")
-    const style = {width: '80%', height: '80%', 'background-image': 'url(/assets/themes/target.png)', 'background-size': 'cover', 'border-radius': '50%'}
+    const style = {width: '80%', height: '80%', 'background-image': `url(/assets/themes/targets/${this.target_id}.png)`, 'background-size': 'cover'}
     Object.assign(nothing.style, style)
     return nothing
   }
-  protected renderPlayerOnEmptySquare(): HTMLDivElement {
-    
+
+  protected renderPlayerOnTargetSquare(): HTMLDivElement {
     const player = document.createElement("div")
-    const style = {width: '100%', height: '100%', 'background-image': 'url(/assets/themes/santa.png)', 'background-size': 'cover'}
+    const style = {width: '80%', height: '80%', 'background-image': `url(/assets/themes/players_on_targets/${this.player_id}.png)`, 'background-size': 'cover'}
     Object.assign(player.style, style)
     return player
   }

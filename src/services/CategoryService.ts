@@ -36,7 +36,7 @@ export default class CategoryService {
         //     console.error('Error reading folder:', err);
         //     return 0;
         // }
-        return 70;
+        return 10;
     }
 
 

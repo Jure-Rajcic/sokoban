@@ -1,10 +1,8 @@
 import "./index.css";
-import DefaultGameTheme from './logic/themes/DefaultGameTheme';
 import GameModel from "./model";
 import { Move } from "./logic/constants/Move";
 import SpanStats from "./logic/adapters/SpanStats";
 import { Stats } from "./logic/constants/Stats";
-import GameTheme from "./models/AGameTheme";
 import GameThemesFactory from "./logic/themes/GameThemesFactory";
 import SelectStats from "./logic/adapters/SelectStats";
 import CategoryService from "./services/CategoryService";

@@ -3,3 +3,5 @@ node_modules/
 
 # Ignore public folder
 public/
+shorts/
+

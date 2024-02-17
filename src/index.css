@@ -103,11 +103,11 @@ button {
 }
 
 .volume-icon.volume-up {
-  background-image: url('assets/volume-up.png');
+  background-image: url('assets/button-icons/volume-up.png');
 }
 
 .volume-icon.volume-mute {
-  background-image: url('assets/volume-mute.png');
+  background-image: url('assets/button-icons/volume-mute.png');
 }
 
 .playground-container {

@@ -1,5 +1,18 @@
+import IGameObject from '../../models/IGameObject';
 import GameSquare from '../../models/IGameSquare'
 
-export default class TargetSquare extends GameSquare {}
+export default class TargetSquare extends GameSquare {
 
-// TODO dodat listenera kojim se proverava jeli level zavrsen
+    protected toStringPlayer(player: IGameObject): string {
+        return '+';
+    }
+    protected toStringBox(box: IGameObject): string {
+        return '*';
+    }
+    protected toStringWall(wall: IGameObject): string {
+        return '#'
+    }
+    protected toStringNothing(nothing: IGameObject): string {
+        return '.';
+    }
+}

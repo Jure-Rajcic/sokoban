@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./src/controller.ts",
+  // entry: "./src/solver.ts",
   module: {
     rules: [
       {
