@@ -69,6 +69,7 @@
     "Solution": "rrDldlLdLUlDuluurrDDrrrddrruuLLLLdLdLruUlDuluurrDDD"
   },
   {
+    "ID": "6",
     "Layout": [
       "###########",
       "#        @#",
@@ -81,7 +82,8 @@
       "# # #.   .#",
       "#    .....#",
       "###########"
-    ]
+    ],
+    "Solution": ""
   },
   {
     "Layout": [

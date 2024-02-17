@@ -392,18 +392,22 @@ def solve_levels(input_path, output_path):
 if __name__ == "__main__":
     # copy & paste the layout of the puzzle here (in api/resources/*.json files)
     layout = [
-      "########",
-      "#  #   #",
-      "#   $  #",
-      "#  #$$ #",
-      "## #   #",
-      "#.. $# #",
-      "#..   @#",
-      "########"
+      "###########",
+      "#        @#",
+      "# #$ $ $  #",
+      "# # $$$$  #",
+      "# #$ $ $  #",
+      "# #     $ #",
+      "# #$### ###",
+      "# # #.....#",
+      "# # #.   .#",
+      "#    .....#",
+      "###########"
     ]
-    solution, time_str = solveSokoban('astar', [list(row) for row in layout])
+    solution, time_str = solveSokoban('bfs', [list(row) for row in layout])
     print(solution)
 
     # input_path = "src/api/resources/1.json"  # Path to your input JSON file
     # output_path = "src/api/resources/1.solved.json"  # Desired path for the output JSON file
     # solve_levels(input_path, output_path)
+# python .\src\solver.py

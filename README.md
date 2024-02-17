@@ -1,10 +1,14 @@
 # Sokoban Game 🎮
 
+## Live Demo 🌍
+
+Check out the live demo of the app: [Sokoban by JR](https://sokoban-by-jr.netlify.app/)
+
 ## Setup and Run 🛠️
 
 - **Install Dependencies**: 📦 - creates node_modules
   ```bash
-  npm install
+  npm install 
   ```
 
 - **Build Project**: 🏗️ - creates "public" folder
@@ -33,5 +37,6 @@
 
 ### Solver:
 - 🤖 Implement a solver button to solve mazes automatically at the beginning of a level.
+- ⚠️ **Note**: The solver button is currently a work in progress and does not function yet.
 
 Enjoy the classic challenge of Sokoban with modern enhancements for a fresh and engaging experience! 🎉
